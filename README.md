@@ -86,7 +86,7 @@ Loops
 | --------- |
 | for |
 | break |
-| continue |
+| continue|
 
 
 ```go
@@ -101,7 +101,16 @@ for a<b {
 
 var numbers = [6]int{1, 2, 3, 5} 
 for i,x:= range numbers{
+    // i is the index, x the element
+}
 
+//you only need e:
+for _, e := range a {
+    // e is the element
+}
+
+//you only need the index
+for i := range a {
 }
 
 for a:=0 ; a<10 ; ++ {
@@ -188,8 +197,12 @@ Arrays utility functions
 make( type , lenght , capacity )
 len( array )
 cap( array )
-array = append( array , value )
+array = append( array , [value] )
 copy( new_array , array )
+[lo:hi] //slice low and high-1
+[1:4] //slice from idx 1:3  [0 1 2 3 4 5] 
+[:3] //slice from idx 0:2 [0 1 2 3 4 5]
+[3:] //slice from idx 2:len-1 [0 1 2 3 4 5]
 
 ```
 
