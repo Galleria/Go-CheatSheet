@@ -193,16 +193,85 @@ var f float64 = float64(i)
 
 Arrays utility functions
 ```go
-
 make( type , lenght , capacity )
 len( array )
 cap( array )
 array = append( array , [value] )
 copy( new_array , array )
-[lo:hi] //slice low and high-1
-[1:4] //slice from idx 1:3  [0 1 2 3 4 5] 
-[:3] //slice from idx 0:2 [0 1 2 3 4 5]
-[3:] //slice from idx 2:len-1 [0 1 2 3 4 5]
 
+arr := []int{1,2,3,4,5}
+arr         //[1 2 3 4 5]
+arr[1:4]    //[2 3 4]
+arr[:3]     //[1 2 3]
+arr[3:]     //[4 5]
+
+new_arr := arr[:4]
+new_arr     //[1 2 3 4]
+```
+
+Map
+```go
+mapping := make(map[string]int)
+mapping ["key"] = 42
+mapping ["strs"] = 40
+fmt.Println(mapping) // map[strs:40 key:42]
+fmt.Println(mapping["key"]) // 42
+
+value,has_value := mapping["key"]
+fmt.Println( value,has_value ) // 42 true
+
+value1,has_value1 := mapping["key1"]
+fmt.Println( value1,has_value1 ) // 0 false
+
+delete(Map,key)
+delete(mapping,"key")
+fmt.Println( mapping["key"] )   // 0
+```
+
+Structure
+```go
+type Mathes struct {
+    X,Y int
+}
+
+func (m Mathes) sum() int { // return as value
+    return m.X+m.Y
+}
+
+func (m *Mathes) sum_pointer() int {    // return as pointer (Reference)
+    return m.X+m.Y
+}
+
+func (m Mathes) add1() {    // mutating by value as value
+    m.X+=1
+    m.Y+=1
+}
+
+func (m *Mathes) add1_pointer() {   // mutating by reference as pointer
+    m.X+=1
+    m.Y+=1
+}
+
+func sum_function_argument(v *Mathes) int{ // funciton argument
+    return m.X+m.Y
+}
+
+func main() {
+    m := Mathes{10,20}
+    fmt.Println(m.X,m.Y)    // 10 20
+    fmt.Println(w.sum())    // 30
+    fmt.Println(w.sum_pointer())    // 30
+    fmt.Println(sum_function_argument(&w))    // 30
+
+    fmt.Println("mutating by value")
+    fmt.Println(w.X)    //10
+    w.add1()
+    fmt.Println(w.X)    //10
+
+    fmt.Println("mutating by reference")
+    fmt.Println(w.X)    //10
+    w.add1_pointer()
+    fmt.Println(w.X)    //11
+}
 ```
 
