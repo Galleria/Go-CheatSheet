@@ -186,6 +186,8 @@ multiParams(5,5)
 Type Conversions
 
 ```go
+type_name(attribute)
+
 var i int = 10
 var f float64 = float64(i)
 ```
@@ -275,3 +277,27 @@ func main() {
 }
 ```
 
+Error Handling
+```go
+    import (
+        "fmt"
+        "errors"
+    )
+    
+    func main() { 
+        result, err:= Divide(2,0)
+
+        if err != nil {
+                fmt.Println(err)
+        }else {
+                fmt.Println(result)
+        }
+    }
+
+    func Divide(value1 int,value2 int)(int, error) {
+       if(value2 == 0){
+          return 0, errors.New("value2 mustn't be zero")
+       }
+       return value1/value2  , nil
+    }
+```
