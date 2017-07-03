@@ -34,6 +34,63 @@ Data types
 | Array 2D | [{length}][{length}]{type} | [5][5]int |
 | Pointer | | *X , &X |
 
+```go
+	var fname string
+	var lname string
+	var age int
+	
+	var (
+		fname,lname string
+		age int
+	)
+	
+	var (
+		fname string = "Supachai"
+		lname string = "Mahachok"
+		age int = 25
+	)
+	
+	var (
+		fname = "Supachai"
+		lname = "Mahachok"
+		age = 25
+	)
+	
+	var (
+		fname, lname, age = "Supachai", "Mahachok", 25
+	)
+```
+
+different between var and :=
+- var both inside and outside a function as long assign statement.
+- := can use only inside a function as short assign statement.
+
+```go
+	var x = "X"
+	// v := "V"	// error non-declaration statement outside function body
+
+	func main() {
+		var y = "Y"
+		z := "Z"
+		fmt.Println(x)
+		fmt.Println(y)
+		fmt.Println(z)
+	}
+```
+
+Constants
+```go
+	const Pi = 3.14
+	
+	const (
+		Pi = 3.14
+	)
+	
+	func main() {
+		const Greeting = "Hello"
+	}
+```
+
 Operators
 
 | Operator | Description |
@@ -364,7 +421,8 @@ func adder(x int) (func(int) int) {
     
 func main() {
 	add3 := adder(3)
-    fmt.Println(add3(4))    //7
+	fmt.Println(add3(4))    //7
 }
 
 ```
+
