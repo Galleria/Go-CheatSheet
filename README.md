@@ -344,3 +344,27 @@ func main() {
 //Circle area: 78.539816
 //Rectangle area: 50.000000
 ```
+
+
+
+Currying function 
+- go-lang is not a functional language so unless to do but it be able to do currying function.
+```go
+
+func add(x, y int) int {
+    return x+ y
+}
+
+func adder(x int) (func(int) int) {
+    return func(y int) int {
+        return add(x, y)
+    }
+}
+
+    
+func main() {
+	add3 := adder(3)
+    fmt.Println(add3(4))    //7
+}
+
+```
