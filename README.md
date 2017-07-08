@@ -293,7 +293,7 @@ delete(mapping,"key")
 fmt.Println( mapping["key"] )   // 0
 ```
 
-Structure
+Struct
 ```go
 type Mathes struct {
     X,Y int
@@ -400,6 +400,28 @@ func main() {
 }
 //Circle area: 78.539816
 //Rectangle area: 50.000000
+```
+
+Array function
+```go
+	a := [2]string{"hello", "world!"}
+	fmt.Println(a)		// [hello world!]
+	fmt.Printf("%s\n", a)	// [hello world!]
+	fmt.Printf("%q\n", a)	// ["hello" "world!"]
+	
+	num := []int{1, 2, 3, 4, 5, 6}
+	fmt.Println(num)	// 1 2 3 4 5 6
+	fmt.Println(num[1:4])	// 2 3 4
+	fmt.Println(num[:3])	// 1 2 3
+	fmt.Println(num[4:])	// 5 6
+	
+	num = append(num, 7)	// 1 2 3 4 5 6 7
+	num2 := [] int{11,12,13}
+	num = append(num, num2...) // 1 2 3 4 5 6 7 11 12 13
+	len( num )	// 10
+	len( num2 )	// 3
+	
+	var arr []int	//arr == nil
 ```
 
 
